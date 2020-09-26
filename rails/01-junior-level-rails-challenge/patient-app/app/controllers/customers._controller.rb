@@ -1,0 +1,1 @@
+allow create, update, and read operations on partners and customers
