@@ -9,7 +9,6 @@ class CreatePatients < ActiveRecord::Migration[6.0]
       t.string :external_id
       t.integer :customer_external_id
 
-      t.integer :customer_id
       t.timestamps
     end
   end
