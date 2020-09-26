@@ -6,7 +6,7 @@ class CustomersController < ActionController::Base
     end
 
     def show
-        @customers = Customer.find(params[:id])
+        @customer = Customer.find(params[:id])
     end
 
     def update
