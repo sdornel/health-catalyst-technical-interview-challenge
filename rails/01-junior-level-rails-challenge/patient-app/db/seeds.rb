@@ -4,14 +4,12 @@
 require 'csv'
 require 'pry'
 
-# p1 = Partner.create()
-# c1 = Customer.create(partner_id: 1 )
-# pat1 = Patient.create(customer_id: 1000)
+# TODO: UPDATE SEEDS.RB AND CREATE CUSTOMER AND PARTNER CSV FILES
 
 num_partners = 5 # represents partners who work with health catalyst
 num_customers = 100 # represents customers who work with health catalyst
 
-partner = 0
+partner = 0 
 puts "BEFORE - #{Partner.count} partner records exist"
 while partner < num_partners do
   # data = {:id=>partner, :name=>"partner_#{partner}", :location=>"partner_location_#{partner}"}
@@ -24,9 +22,8 @@ puts "AFTER - #{Partner.count} partner records exist"
 
 customer = 0
 puts "BEFORE - #{Customer.count} customer records exist"
-while customer < num_customers do
+while customer < num_customers do # for the sake of simplicity I assumed each partner has an equal number of customers
   customer_id = customer + 1000
-  # binding.pry
   if customer < 20
     partner = 1
   elsif customer < 40

@@ -14,4 +14,9 @@ class CustomersController < ActionController::Base
         @customers.update(customer_params)
         # redirect_to partner_path(@partner)
     end
+
+    private
+    def customer_params
+        params.require(:customer).permit(:name, :location, :partner_id)
+    end
 end

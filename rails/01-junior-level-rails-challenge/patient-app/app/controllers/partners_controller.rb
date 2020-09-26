@@ -14,4 +14,9 @@ class PartnersController < ActionController::Base
         @partner.update(partner_params)
         # redirect_to partner_path(@partner)
     end
+
+    private
+    def partner_params
+        params.require(:partner).permit(:name, :location)
+    end
 end

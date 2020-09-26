@@ -1,0 +1,11 @@
+<h1>Customer Profile</h1>
+
+ID: <%= @customer.id %><br>
+Name: <%= @customer.name %><br>
+Location: <%= @customer.location %><br>
+<br><br>
+Partner of: <%= @customer.partnered %><br>
+Partner ID: <%= @customer.partner_id %><br>
+<br>
+<br>
+<%= link_to "Edit Applicant Profile", edit_customer_path(@customer) %> - 
