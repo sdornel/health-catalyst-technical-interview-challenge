@@ -1,4 +1,4 @@
-class PatientsController < ActionController::Base
+class PatientsController < ApplicationController
 
     def index
         @patients = Patient.all
