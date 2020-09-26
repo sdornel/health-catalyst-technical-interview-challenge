@@ -1,7 +1,7 @@
-class CustomerController < ActionController::Base
+class PatientsController < ActionController::Base
 
     def index
-        @patients = Patients.all
+        @patients = Patient.all
     end
 
     def show
