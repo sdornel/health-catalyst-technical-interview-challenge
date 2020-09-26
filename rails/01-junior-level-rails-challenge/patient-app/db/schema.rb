@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_09_26_014652) do
     t.string "name"
     t.string "location"
     t.integer "partner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "partners", force: :cascade do |t|
@@ -33,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_014652) do
     t.string "phone_number"
     t.string "sex"
     t.string "external_id"
-    t.integer "customer_external_id"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

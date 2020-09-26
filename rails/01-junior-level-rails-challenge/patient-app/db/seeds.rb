@@ -4,15 +4,58 @@
 require 'csv'
 require 'pry'
 
-# p1 = Partner.create(id: 1)
-# c1 = Customer.create(id: 1, name: "customer1", partner_id: 1)
+# p1 = Partner.create()
+# c1 = Customer.create(partner_id: 1 )
+# pat1 = Patient.create(customer_id: 1000)
 
+num_partners = 5 # represents partners who work with health catalyst
+num_customers = 100 # represents customers who work with health catalyst
+
+partner = 0
+puts "BEFORE - #{Partner.count} partner records exist"
+while partner < num_partners do
+  # data = {:id=>partner, :name=>"partner_#{partner}", :location=>"partner_location_#{partner}"}
+  # Partner.find_or_create_by(data)
+
+  Partner.create(name: "partner_#{partner+1}", location: "partner_location_#{partner+1}")
+  partner += 1
+end
+puts "AFTER - #{Partner.count} partner records exist"
+
+customer = 0
+puts "BEFORE - #{Customer.count} customer records exist"
+while customer < num_customers do
+  customer_id = customer + 1000
+  # binding.pry
+  if customer < 20
+    partner = 1
+  elsif customer < 40
+    partner = 2
+  elsif customer < 60
+    partner = 3
+  elsif customer < 80
+    partner = 4
+  else
+    partner = 5
+  end
+
+  Customer.create(id: customer_id, partner_id: partner, name: "customer_#{customer+1}", location: "customer_location_#{customer+1}")
+  customer += 1
+end
+# binding.pry
+puts "AFTER - #{Customer.count} customer records exist"
 
 puts "BEFORE - #{Patient.count} patient records exist"
 CSV.table(Rails.root.join('db', 'seed_files', 'patients.csv')).each do |row|
+  # customer_id = row[:customer_external_id]
+  # record = row.to_h.merge(date_of_birth: Date.parse(row[:date_of_birth]))
   # binding.pry
-  record = row.to_h.merge(date_of_birth: Date.parse(row[:date_of_birth]))
+  # Customer.find_or_create_by!(row[:customer_external_id])
+  
+  record = {:given_name=>row[:given_name], :family_name=>row[:family_name], :phone_number=>row[:phone_number], :sex=>row[:sex], :external_id=>row[:external_id], :customer_id=>row[:customer_external_id]}
   Patient.find_or_create_by!(record)
+  # puts record
+  # Patient.create(record)
 end
 puts "AFTER - #{Patient.count} patient records exist"
 
