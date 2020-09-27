@@ -8,10 +8,15 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
     end
 
+    def edit
+        @customer = Customer.find(params[:id])
+    end
+
+
     def update
-        @customers = Customer.find(params[:id])
-        @customers.update(customer_params)
-        # redirect_to partner_path(@partner)
+        @customer = Customer.find(params[:id])
+        @customer.update(customer_params)
+        redirect_to customer_path(@customer)
     end
 
     private

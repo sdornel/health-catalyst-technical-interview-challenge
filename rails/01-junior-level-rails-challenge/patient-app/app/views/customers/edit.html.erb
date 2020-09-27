@@ -1,0 +1,12 @@
+<h1>Edit Customer</h1>
+<br>
+<%= form_for @customer do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%= f.submit "Edit Customer"%>
+<% end %>
+
+
+

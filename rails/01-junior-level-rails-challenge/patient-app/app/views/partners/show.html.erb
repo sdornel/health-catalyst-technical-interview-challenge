@@ -1,7 +1,9 @@
 <h1>Partner Profile</h1>
 
+    ID: <%= @partner.id %>
+    <br/>
     Name: <%= @partner.name %>
     <br/>
     Location: <%= @partner.location %>
-    <br/>
-    ID: <%= @partner.id %>
+    
+    <%= link_to "Edit This Partner's Information", edit_partner_path(@partner) %>

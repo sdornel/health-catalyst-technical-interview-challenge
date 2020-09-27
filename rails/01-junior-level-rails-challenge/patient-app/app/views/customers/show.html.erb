@@ -3,7 +3,9 @@
 ID: <%= @customer.id %><br>
 Name: <%= @customer.name %><br>
 Location: <%= @customer.location %><br>
-<br><br>
+
+<br>
 
 Partner name: <%= @customer.find_partner.name %>
-<br>
+<br/><br/>
+<%= link_to "Edit This Customer's Information", edit_customer_path(@customer) %>
