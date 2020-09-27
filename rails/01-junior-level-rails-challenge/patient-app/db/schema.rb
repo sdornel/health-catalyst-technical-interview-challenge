@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_014652) do
     t.string "sex"
     t.string "external_id"
     t.integer "customer_id"
+    t.integer "customer_external_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

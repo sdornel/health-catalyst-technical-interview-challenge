@@ -49,7 +49,7 @@ CSV.table(Rails.root.join('db', 'seed_files', 'patients.csv')).each do |row|
   # binding.pry
   # Customer.find_or_create_by!(row[:customer_external_id])
   
-  record = {:given_name=>row[:given_name], :family_name=>row[:family_name], :phone_number=>row[:phone_number], :sex=>row[:sex], :external_id=>row[:external_id], :customer_id=>row[:customer_external_id]}
+  record = { :date_of_birth=>row[:date_of_birth], :given_name=>row[:given_name], :family_name=>row[:family_name], :phone_number=>row[:phone_number], :sex=>row[:sex], :external_id=>row[:external_id], :customer_id=>row[:customer_external_id], :customer_external_id=>row[:customer_external_id] }
   Patient.find_or_create_by!(record)
   # puts record
   # Patient.create(record)
