@@ -4,18 +4,13 @@ Rails.application.routes.draw do
 
   resources :customers, only: [:index, :show, :update]  
 
-
   resources :partners, only: [:index, :show, :update]
 
-  # get 'customers', to: 'customer#index'
-  # get 'customers/:id', to: 'customer#show'
   get 'customers/:id/edit', to: 'customers#edit', as: :edit_customer
-  # # patch '/customers/:id', to: 'customers#update'
 
-  # get 'partners', to: 'partners#index'
-  # get 'partners/:id', to: 'partners#show'
   get 'partners/:id/edit', to: 'partners#edit', as: :edit_partner
-  # # patch '/partners/:id', to: 'partners#update'
+
+  resources :exports, only: [:index, :show]
 
 end
 

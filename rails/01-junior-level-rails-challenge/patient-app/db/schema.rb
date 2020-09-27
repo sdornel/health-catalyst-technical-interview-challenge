@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_014652) do
+ActiveRecord::Schema.define(version: 2020_09_27_162859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_09_26_014652) do
     t.integer "partner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "exports", force: :cascade do |t|
+    t.string "export_status", default: "Pending"
+    t.integer "number_records"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "export_ended"
+    t.float "export_duration_in_mins"
   end
 
   create_table "partners", force: :cascade do |t|

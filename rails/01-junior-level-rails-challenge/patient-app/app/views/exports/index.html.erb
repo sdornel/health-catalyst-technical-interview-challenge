@@ -1,0 +1,9 @@
+<h1>Exports</h1>
+
+<% @exports.each do |export| %>
+    <li>
+        Export ID: <%= link_to export.id, export_path(export) %>
+        Status: <%= export.export_status %>
+    </li>
+    <br/>
+<% end %>
