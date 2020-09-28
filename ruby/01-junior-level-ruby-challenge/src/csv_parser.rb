@@ -21,7 +21,8 @@ end
   # Maybe I'm overthinking but I couldn't figure out how to create the error described in the readme without first modifying the above line of code
   # I tried modifying a .csv file so that the header would be missing, have only commas, and have various combinations of commas and other characters
   # I decided to fix a different issue ```NoMethodError: undefined method `downcase' for nil:NilClass```
-# NoMethodError: undefined method `map' for nil:NilClass
+
+  # NoMethodError: undefined method `map' for nil:NilClass = means CSV.parse(File.new(filepath).each_line.first).first gives nil
 
 # headers: true # Removes headers from read 
 # CSV.parse(File.open('src/data.csv').each_line.first, {:headers => true}).first = nil
