@@ -13,7 +13,8 @@ module CSVParser
       parse = ["headers missing!"]
       parse.first.map(&:downcase)
     else
-      CSV.parse(File.new(filepath).each_line.first).first.map(&:downcase)
+      parse.map(&:downcase)
+      # CSV.parse(File.new(filepath).each_line.first).first.map(&:downcase)
     end
 
   end
