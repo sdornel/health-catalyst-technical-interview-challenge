@@ -1,1 +1,7 @@
-,,,
+,
+"date_of_birth","given_name","family_name","phone_number","sex","external_id","customer_external_id"
+"1948-01-05","Simone","Bella","(555) 555-5555","F","Simone-Bella","1000"
+"1950-03-22","Rose","Odingo","(555) 555-5555","F","Rose-Odingo","1000"
+"1956-10-18","Joel","Charleston","(555) 555-5555","M","Joel-Charleston","1000"
+"1952-06-12","Bradley","Moore","(555) 555-5555","M","Bradley-Moore","1000"
+CSV.parse(File.open('src/data.csv').first).first

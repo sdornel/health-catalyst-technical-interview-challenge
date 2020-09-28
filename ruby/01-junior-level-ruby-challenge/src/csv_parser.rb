@@ -7,23 +7,22 @@ require 'pry'
 
 module CSVParser
   def self.header_row(filepath)
-    binding.pry
     parse = CSV.parse(File.new(filepath).each_line.first).first
-    if parse.nil?
-      parse = ["headers missing!"]
-      parse.first.map(&:downcase)
-    else
-      parse.map(&:downcase)
-      # CSV.parse(File.new(filepath).each_line.first).first.map(&:downcase)
-    end
 
+      for h in 1..parse.length-1 do
+        if parse[h] == nil
+          parse[h] = "Header value cannot be processed! Check if header == nil!"
+        end
+      end
+      parse.map(&:downcase)      
   end
 end
+  # CSV.parse(File.new(filepath).each_line.first).first.map(&:downcase)
+  # Maybe I'm overthinking but I couldn't figure out how to create the error described in the readme without first modifying the above line of code
+  # I tried modifying a .csv file so that the header would be missing, have only commas, and have various combinations of commas and other characters
+  # I decided to fix a different issue ```NoMethodError: undefined method `downcase' for nil:NilClass```
 # NoMethodError: undefined method `map' for nil:NilClass
-# I know this occurs when CSV.parse(File.new(filepath).each_line.first).first returns nil
 
-# .nil? could be useful
-
-# test would be something like:
-# expect CSV.parse(File.new(filepath).each_line.first) to equal nil
-# how to fix it?
+# headers: true # Removes headers from read 
+# CSV.parse(File.open('src/data.csv').each_line.first, {:headers => true}).first = nil
+# CSV.parse(File.open('src/data.csv').each_line.first, headers: true).first.map = nil
