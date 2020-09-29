@@ -7,11 +7,11 @@ class CustomersController < ApplicationController
     def show
         @customer = Customer.find(params[:id])
         @sorted_patients = @customer.patients
-        # byebug
-        # respond_to do |format|
-        #     format.html
-        #     format.csv { send_data Customer.to_csv(@customer.id), filename: "#{@customer.id}-#{@customer.name}-#{Date.today}.csv" }
-        # end
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data Customer.to_csv(@customer.id, @sorted_patients), filename: "#{@customer.name}-#{Date.today}.csv" }
+        end
     end
 
     def edit

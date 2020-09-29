@@ -1,6 +1,6 @@
 class Export < ApplicationRecord
-    belongs_to :partner
-    belongs_to :customer
+    belongs_to :partner, optional: true 
+    belongs_to :customer, optional: true 
     
 
     def export_duration

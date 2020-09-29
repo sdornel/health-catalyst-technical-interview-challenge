@@ -12,6 +12,9 @@ class CreateExports < ActiveRecord::Migration[6.0]
 
       t.datetime :export_ended
       t.float :export_duration_in_mins
+
+      t.integer :customer_id
+      t.integer :partner_id
     end
   end
 end

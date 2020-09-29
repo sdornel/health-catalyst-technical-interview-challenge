@@ -9,6 +9,10 @@ class PartnersController < ApplicationController
         @partner = Partner.find(params[:id])
 
         @sorted_patients = @partner.patients
+        respond_to do |format|
+            format.html
+            format.csv { send_data Partner.to_csv(@partner.id, @sorted_patients), filename: "#{@partner.name}-patients-#{Date.today}.csv" }
+        end
     end
 
     def edit

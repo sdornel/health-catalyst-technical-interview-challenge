@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_09_27_162859) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "export_ended"
     t.float "export_duration_in_mins"
+    t.integer "customer_id"
+    t.integer "partner_id"
   end
 
   create_table "partners", force: :cascade do |t|
