@@ -1,17 +1,22 @@
-# allow create, update, and read operations on partners and customers
 class CustomersController < ApplicationController
     def index
         @customers = Customer.all
+
     end
 
     def show
         @customer = Customer.find(params[:id])
+        @sorted_patients = @customer.patients
+        # byebug
+        # respond_to do |format|
+        #     format.html
+        #     format.csv { send_data Customer.to_csv(@customer.id), filename: "#{@customer.id}-#{@customer.name}-#{Date.today}.csv" }
+        # end
     end
 
     def edit
         @customer = Customer.find(params[:id])
     end
-
 
     def update
         @customer = Customer.find(params[:id])

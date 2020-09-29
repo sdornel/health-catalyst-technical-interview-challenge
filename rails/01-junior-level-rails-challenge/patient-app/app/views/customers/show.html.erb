@@ -1,5 +1,7 @@
 <h1>Customer Profile</h1>
 
+<%= link_to "Export CSV", customer_path(format: :csv) %>
+<br/><br/>
 ID: <%= @customer.id %><br>
 Name: <%= @customer.name %><br>
 Location: <%= @customer.location %><br>

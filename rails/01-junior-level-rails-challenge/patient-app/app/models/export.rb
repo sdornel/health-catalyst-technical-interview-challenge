@@ -1,5 +1,7 @@
 class Export < ApplicationRecord
-    # belongs_to :patient
+    belongs_to :partner
+    belongs_to :customer
+    
 
     def export_duration
         byebug

@@ -1,3 +1,4 @@
+
 class ExportsController < ApplicationController
 
     def index
@@ -13,6 +14,7 @@ class ExportsController < ApplicationController
     end
 
     def create
+        byebug
         @export = Export.create(export_params)
         redirect_to export_path(@export)
     end

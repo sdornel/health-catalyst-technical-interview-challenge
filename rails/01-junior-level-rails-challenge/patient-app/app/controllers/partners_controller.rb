@@ -7,6 +7,8 @@ class PartnersController < ApplicationController
 
     def show
         @partner = Partner.find(params[:id])
+
+        @sorted_patients = @partner.patients
     end
 
     def edit

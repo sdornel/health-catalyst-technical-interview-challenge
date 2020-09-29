@@ -1,0 +1,11 @@
+<h1>Patients</h1>
+
+<%= link_to "Export CSV", patients_path(format: :csv) %>
+<br/>
+<br/>
+<% @patients.each do |patient| %>
+    <li>
+        Patient ID: <%= link_to patient.id, patient_path(patient) %>
+    </li>
+    <br/>
+<% end %>
