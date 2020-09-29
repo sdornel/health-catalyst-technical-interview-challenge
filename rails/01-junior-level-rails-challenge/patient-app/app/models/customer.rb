@@ -1,6 +1,7 @@
+require 'csv'
+
 class Customer < ApplicationRecord
     has_many :patients
-    # has_many :exports
     belongs_to :partner
 
     def find_partner

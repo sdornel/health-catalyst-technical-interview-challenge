@@ -1,7 +1,8 @@
+require 'csv'
+
 class Partner < ApplicationRecord
     has_many :customers
     has_many :patients, through: :customers
-    # has_many :exports
     
     def self.to_csv(partner_id, patients)
         attributes = %w{ id date_of_birth given_name family_name phone_number sex external_id customer_external_id }
