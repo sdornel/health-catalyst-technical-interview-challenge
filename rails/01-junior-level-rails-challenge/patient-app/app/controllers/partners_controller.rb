@@ -1,5 +1,3 @@
-# allow create, update, and read operations on partners and customers
-
 class PartnersController < ApplicationController
     def index
         @partners = Partner.all

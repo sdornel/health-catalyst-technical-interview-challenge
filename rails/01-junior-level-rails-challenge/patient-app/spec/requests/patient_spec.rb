@@ -1,4 +1,4 @@
-require 'rails_helper'
+# require 'rails_helper'
 
 RSpec.describe Patient, type: :request do
   describe "GET patients#index" do

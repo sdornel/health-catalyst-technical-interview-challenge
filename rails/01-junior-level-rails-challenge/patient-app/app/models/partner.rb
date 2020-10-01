@@ -15,9 +15,10 @@ class Partner < ApplicationRecord
                 end
             end
             start = Time.now
-            Export.create(partner_id: partner_id, export_status: "Complete", number_records: patients.length, created_at: start, export_duration_in_mins: ((Time.now - start)/60), export_ended: DateTime.now )
-            rescue
-                Export.create(export_status: "Failed")
+            export = Export.create(partner_id: partner_id, export_status: "Complete", number_records: patients.length, created_at: start, export_duration_in_mins: ((Time.now - start)/60), export_ended: DateTime.now )
+            if export.id == nil || export.number_records == nil || export.created_at == nil || export.export_ended == nil || export.export_duration_in_mins == nil || export.partner_id == nil
+                Export.last.update(export_status: "Failed")
+            end
         end
     end
 end
